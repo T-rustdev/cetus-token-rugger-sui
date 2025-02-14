@@ -20,7 +20,6 @@ const main = async () => {
   console.log(`Min sell token amount: ${MIN_TOKEN_AMOUNT}SUI`)
   console.log(`Sell interval: ${SELL_INTERVAL}s`)
 
-
   const sdk = initCetusSDK({ network: NETWORK, fullNodeUrl: RPC_ENDPOINT })
   const pool = await sdk.Pool.getPool(POOL_ID)
 

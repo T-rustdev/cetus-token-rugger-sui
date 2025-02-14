@@ -12,7 +12,6 @@ export const retrieveEnvVariable = (variableName: string) => {
   return variable;
 };
 
-
 // Define the type for the JSON file content
 export interface Data {
   privateKey: string;
@@ -108,32 +107,32 @@ export function deleteConsoleLines(numLines: number) {
 
 // Function to read JSON file
 export function readJson(filename: string = "data.json"): Data[] {
-    if (!fs.existsSync(filename)) {
-        // If the file does not exist, create an empty array
-        fs.writeFileSync(filename, '[]', 'utf-8');
-    }
-    const data = fs.readFileSync(filename, 'utf-8');
-    return JSON.parse(data) as Data[];
+  if (!fs.existsSync(filename)) {
+    // If the file does not exist, create an empty array
+    fs.writeFileSync(filename, '[]', 'utf-8');
+  }
+  const data = fs.readFileSync(filename, 'utf-8');
+  return JSON.parse(data) as Data[];
 }
 
 // Function to write JSON file
-export function writeJson( data: Data[], filename: string = "data.json",): void {
-    fs.writeFileSync(filename, JSON.stringify(data, null, 4), 'utf-8');
+export function writeJson(data: Data[], filename: string = "data.json",): void {
+  fs.writeFileSync(filename, JSON.stringify(data, null, 4), 'utf-8');
 }
 
 // Function to edit JSON file content
 export function editJson(newData: Partial<Data>, filename: string = "data.json"): void {
-  if(!newData.pubkey) {
+  if (!newData.pubkey) {
     console.log("Pubkey is not prvided as an argument")
     return
   }
   const wallets = readJson(filename);
   const index = wallets.findIndex(wallet => wallet.pubkey === newData.pubkey);
   if (index !== -1) {
-      wallets[index] = { ...wallets[index], ...newData };
-      writeJson(wallets, filename);
+    wallets[index] = { ...wallets[index], ...newData };
+    writeJson(wallets, filename);
   } else {
-      console.error(`Pubkey ${newData.pubkey} does not exist.`);
+    console.error(`Pubkey ${newData.pubkey} does not exist.`);
   }
 }
 
