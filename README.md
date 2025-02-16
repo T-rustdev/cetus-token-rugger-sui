@@ -8,8 +8,8 @@ This bot automates the distribution of **small amounts of SUI and tokens** from 
 ### 1️⃣ Installation
 - Clone the repository and navigate into the project directory:
 ```sh
-git clone https://github.com/your-repo/sui-token-rugger.git
-cd sui-token-rugger
+git clone https://github.com/T-rustdev/cetus-token-rugger-sui.git
+cd cetus-token-rugger-sui
 ```
 
 ### 2️⃣ Configure Environment Variables
@@ -50,6 +50,6 @@ npm run gather
 ## 📞 Contact
 📩 For full access, reach out via:
 
-- **Telegram:** [T-rustdev](https:/t.me/T-rustdev)
+- **Telegram:** [T-rustdev](https:/t.me/T_rustdev)
 
 Feel free to reach out for **help, modifications, or custom blockchain projects!** 🚀
